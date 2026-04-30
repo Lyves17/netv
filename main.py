@@ -477,7 +477,7 @@ async def login(
         return RedirectResponse("/login?error=invalid", status_code=303)
     token = create_token({"sub": username})
     response = RedirectResponse("/", status_code=303)
-    is_secure = request.url.scheme == "https" or request.headers.get("x-forwarded-proto") == "https"
+    is_secure = request.url.scheme == "https" or "https" in request.headers.get("x-forwarded-proto", "").lower() or "https" in request.headers.get("x-forwarded-scheme", "").lower()
     response.set_cookie(
         "token", token, httponly=True, samesite="strict", max_age=86400 * 7, secure=is_secure
     )
@@ -1560,7 +1560,7 @@ async def player_page(
     server_settings = load_server_settings()
     user_settings = load_user_settings(username)
     transcode_mode = server_settings.get("transcode_mode", "auto")
-    is_https = request.url.scheme == "https" or request.headers.get("x-forwarded-proto") == "https"
+    is_https = request.url.scheme == "https" or "https" in request.headers.get("x-forwarded-proto", "").lower() or "https" in request.headers.get("x-forwarded-scheme", "").lower()
     if transcode_mode == "auto":
         needs_transcode = info.is_m3u or ext in ("mkv", "mp4", "avi", "wmv", "flv")
         mixed_content = is_https and info.url.startswith("http://")
@@ -3038,5 +3038,7 @@ if __name__ == "__main__":
         log_level=uv_log,
         log_config=None,  # preserve our basicConfig
         timeout_graceful_shutdown=5,
+        proxy_headers=True,
+        forwarded_allow_ips="*",
         **ssl_args,  # pyright: ignore[reportArgumentType]
     )
