@@ -682,8 +682,12 @@ async def guide_page(
         # Use saved view selection (could be [] for "none")
         effective_cats = ",".join(saved_view_cats)
     else:
-        # Default: show all from settings filter
-        effective_cats = ",".join(saved_filter_list)
+        # Default: show all from settings filter (or all categories if no filter set)
+        if saved_filter_list:
+            effective_cats = ",".join(saved_filter_list)
+        else:
+            # No filter set - show all categories
+            effective_cats = ",".join(str(c["category_id"]) for c in categories)
 
     # Use helper to get filtered/sorted streams
     streams, ordered_cats, selected_cats = _get_guide_streams(effective_cats, username)
@@ -765,7 +769,12 @@ def _get_guide_streams(cats: str, username: str) -> tuple[list[dict], list[str],
     selected_cats = set(ordered_cats)
 
     if not selected_cats:
-        return [], ordered_cats, selected_cats
+        # No categories selected - return all streams
+        user_limits = auth.get_user_limits(username)
+        unavailable_groups = set(user_limits.get("unavailable_groups", []))
+        all_filtered = [s for s in all_streams if not any(
+            f"cat:{c}" in unavailable_groups for c in (s.get("category_ids") or []))]
+        return all_filtered, [str(c["category_id"]) for c in get_cache().get("live_categories", [])], set()
 
     # Get user's unavailable groups for filtering
     user_limits = auth.get_user_limits(username)
