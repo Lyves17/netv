@@ -507,9 +507,9 @@ def load_server_settings() -> dict[str, Any]:
         import uuid
         data["sources"] = [{
             "id": str(uuid.uuid4())[:8],
-            "name": "iptv-org FR",
+            "name": "iptv-org (all channels)",
             "type": "m3u",
-            "url": "https://iptv-org.github.io/iptv/countries/fr.m3u",
+            "url": "https://iptv-org.github.io/iptv/all.m3u",
             "username": "",
             "password": "",
             "epg_timeout": 120,
