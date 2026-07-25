@@ -62,4 +62,59 @@ if [ -e /dev/dri/renderD128 ]; then
 fi
 
 # Drop to netv user and run the app
+
+# Initialize default settings and admin user on every start
+# (Render has ephemeral storage, so we recreate on each boot)
+python3 << 'PYEOF'
+import json, pathlib, hashlib, secrets, uuid
+
+cache_dir = pathlib.Path('/app/cache')
+cache_dir.mkdir(exist_ok=True)
+users_dir = cache_dir / 'users'
+users_dir.mkdir(exist_ok=True)
+
+settings_file = cache_dir / 'server_settings.json'
+settings = {}
+if settings_file.exists():
+    try:
+        settings = json.loads(settings_file.read_text())
+    except Exception:
+        settings = {}
+
+# Ensure admin user exists
+if 'users' not in settings or not settings['users']:
+    salt = secrets.token_hex(16)
+    key = hashlib.pbkdf2_hmac('sha256', b'Mentenon', salt.encode(), 100000)
+    settings['users'] = {'admin': {'password': f'{salt}:{key.hex()}', 'admin': True}}
+    admin_dir = users_dir / 'admin'
+    admin_dir.mkdir(exist_ok=True)
+    (admin_dir / 'settings.json').write_text(json.dumps({
+        'guide_filter': [],
+        'captions_enabled': True,
+        'watch_history': {},
+        'favorites': {'series': {}, 'movies': {}},
+        'cc_lang': '', 'cc_style': {}, 'cast_host': '',
+    }, indent=2))
+    print('Default admin user created')
+
+# Ensure FR source exists
+if 'sources' not in settings or not settings['sources']:
+    settings['sources'] = [{
+        'id': str(uuid.uuid4())[:8],
+        'name': 'iptv-org FR',
+        'type': 'm3u',
+        'url': 'https://iptv-org.github.io/iptv/countries/fr.m3u',
+        'username': '', 'password': '',
+        'epg_timeout': 120, 'epg_schedule': [], 'epg_enabled': True,
+        'epg_url': '', 'deinterlace_fallback': True, 'max_streams': 0,
+    }]
+    print('Default FR source added')
+
+# Ensure secret key
+if 'secret_key' not in settings:
+    settings['secret_key'] = secrets.token_hex(32)
+
+settings_file.write_text(json.dumps(settings, indent=2))
+print('Settings initialized')
+PYEOF
 exec gosu netv python3 main.py --port "${NETV_PORT:-8000}" ${NETV_HTTPS:+--https}
