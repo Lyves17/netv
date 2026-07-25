@@ -503,6 +503,22 @@ def load_server_settings() -> dict[str, Any]:
     data.setdefault("probe_movies", True)
     data.setdefault("probe_series", False)
     data.setdefault("sources", [])
+    if not data["sources"]:
+        import uuid
+        data["sources"] = [{
+            "id": str(uuid.uuid4())[:8],
+            "name": "iptv-org (all channels)",
+            "type": "m3u",
+            "url": "https://iptv-org.github.io/iptv/all.m3u",
+            "username": "",
+            "password": "",
+            "epg_timeout": 120,
+            "epg_schedule": [],
+            "epg_enabled": True,
+            "epg_url": "",
+            "deinterlace_fallback": True,
+            "max_streams": 0,
+        }]
     data.setdefault("users", {})
     data.setdefault("user_agent_preset", "tivimate")
     data.setdefault("user_agent_custom", "")
