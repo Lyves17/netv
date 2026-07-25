@@ -109,9 +109,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -123,9 +123,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -137,9 +137,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -151,9 +151,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -165,9 +165,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -179,9 +179,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -193,9 +193,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -207,9 +207,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -221,9 +221,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -235,9 +235,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -249,9 +249,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -263,9 +263,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -277,9 +277,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -291,9 +291,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -305,9 +305,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     },
 {
@@ -319,9 +319,9 @@ if 'sources' not in settings or not settings['sources']:
                                     "password": "",
                                     "epg_timeout": 120,
                                     "epg_schedule": [],
-                                    "epg_enabled": true,
+                                    "epg_enabled": True,
                                     "epg_url": "",
-                                    "deinterlace_fallback": true,
+                                    "deinterlace_fallback": True,
                                     "max_streams": 0
                     }
             ]
